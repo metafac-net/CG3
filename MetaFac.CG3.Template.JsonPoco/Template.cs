@@ -239,8 +239,7 @@ namespace T_Namespace_.JsonPoco
         //>>    break; case FieldKind.ArrayString:
         IEnumerable<String?>? IT_ClassName_.T_ArrayStringFieldName_ => T_ArrayStringFieldName_;
         //>>    break; case FieldKind.IndexString:
-        IEnumerable<KeyValuePair<T_IndexType_, String?>>? IT_ClassName_.T_IndexStringFieldName_ => T_IndexStringFieldName_
-            ?.Select(kvp => new KeyValuePair<T_IndexType_, String?>(kvp.Key, kvp.Value));
+        IEnumerable<KeyValuePair<T_IndexType_, String?>>? IT_ClassName_.T_IndexStringFieldName_ => T_IndexStringFieldName_;
         //>>    break; default: break;
         //>>}
         //>>}}
