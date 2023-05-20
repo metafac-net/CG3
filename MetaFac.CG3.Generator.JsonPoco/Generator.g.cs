@@ -250,8 +250,7 @@ Emit("        String? IT_ClassName_.T_UnaryStringFieldName_ => T_UnaryStringFiel
             break; case FieldKind.ArrayString:
 Emit("        IEnumerable<String?>? IT_ClassName_.T_ArrayStringFieldName_ => T_ArrayStringFieldName_;");
             break; case FieldKind.IndexString:
-Emit("        IEnumerable<KeyValuePair<T_IndexType_, String?>>? IT_ClassName_.T_IndexStringFieldName_ => T_IndexStringFieldName_");
-Emit("            ?.Select(kvp => new KeyValuePair<T_IndexType_, String?>(kvp.Key, kvp.Value));");
+Emit("        IEnumerable<KeyValuePair<T_IndexType_, String?>>? IT_ClassName_.T_IndexStringFieldName_ => T_IndexStringFieldName_;");
             break; default: break;
         }
         }}
