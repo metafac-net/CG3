@@ -25,7 +25,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MessagePack" Version="2.5.129" />
+    <PackageReference Include="MessagePack" Version="2.5.140" />
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.133">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
