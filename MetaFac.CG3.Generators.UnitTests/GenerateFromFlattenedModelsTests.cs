@@ -11,7 +11,6 @@ using Xunit;
 
 namespace MetaFac.CG3.Generators.UnitTests
 {
-    [UsesVerify]
     public class GenerateFromFlattenedModelsTests
     {
         private static string GenerateSourceCode(GeneratorBase generator)
