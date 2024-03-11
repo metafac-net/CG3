@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MetaFac.Collections.Freezables" Version="1.7.7" />
+    <PackageReference Include="MetaFac.Collections.Freezables" Version="1.7.9" />
   </ItemGroup>
 
   <ItemGroup>
