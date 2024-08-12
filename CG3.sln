@@ -5,8 +5,8 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A66B7F07-07A1-4A76-9505-1EFBE8717558}"
 	ProjectSection(SolutionItems) = preProject
-		azure-pipelines.yml = azure-pipelines.yml
 		codegen_t2g.cmd = codegen_t2g.cmd
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		projscan.json = projscan.json
 		README.md = README.md
 		SigningKey.snk = SigningKey.snk
@@ -89,7 +89,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaFac.CG3.Models", "MetaF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaFac.CG3.Template.UnitTests", "MetaFac.CG3.Template.UnitTests\MetaFac.CG3.Template.UnitTests.csproj", "{A07E226F-0BD9-4145-AF48-D5F5187EAAD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaFac.CG3.Generators.UnitTests", "MetaFac.CG3.Generators.UnitTests\MetaFac.CG3.Generators.UnitTests.csproj", "{83AC5A99-8821-416F-A3AC-CAAD8905635E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaFac.CG3.Generators.UnitTests", "MetaFac.CG3.Generators.UnitTests\MetaFac.CG3.Generators.UnitTests.csproj", "{83AC5A99-8821-416F-A3AC-CAAD8905635E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
