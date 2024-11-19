@@ -3,7 +3,7 @@
 :: dotnet tool update --global MetaFac.CG3.CLI --ignore-failed-sources
 
 :: set _cmd=mfcg3
-set _cmd=.\MetaFac.CG3.CLI\bin\Debug\net6.0\MetaFac.CG3.CLI.exe
+set _cmd=.\MetaFac.CG3.CLI\bin\Debug\net9.0\MetaFac.CG3.CLI.exe
 
 set _prefix=MetaFac.CG3
 
