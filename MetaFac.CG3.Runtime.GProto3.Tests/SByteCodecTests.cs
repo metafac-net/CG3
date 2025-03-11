@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using Xunit;
 
 namespace MetaFac.CG3.Runtime.GProto3.Tests
@@ -14,10 +14,10 @@ namespace MetaFac.CG3.Runtime.GProto3.Tests
         public void SByte(sbyte outgoing, int expectedTransit, sbyte expectedIncoming)
         {
             int transit = outgoing.Encode_SByte_To_Int32();
-            transit.Should().Be(expectedTransit);
+            transit.ShouldBe(expectedTransit);
 
             sbyte incoming = transit.Decode_SByte_From_Int32();
-            incoming.Should().Be(expectedIncoming);
+            incoming.ShouldBe(expectedIncoming);
         }
 
         [Theory]
@@ -30,10 +30,10 @@ namespace MetaFac.CG3.Runtime.GProto3.Tests
         public void SByte_Nullable(sbyte? outgoing, int? expectedTransit, sbyte? expectedIncoming)
         {
             int? transit = outgoing.Encode_SByte_To_Int32();
-            transit.Should().Be(expectedTransit);
+            transit.ShouldBe(expectedTransit);
 
             sbyte? incoming = transit.Decode_SByte_From_Int32(0);
-            incoming.Should().Be(expectedIncoming);
+            incoming.ShouldBe(expectedIncoming);
         }
 
         [Theory]
@@ -43,10 +43,10 @@ namespace MetaFac.CG3.Runtime.GProto3.Tests
         public void Byte(byte outgoing, uint expectedTransit, byte expectedIncoming)
         {
             uint transit = outgoing.Encode_Byte_To_UInt32();
-            transit.Should().Be(expectedTransit);
+            transit.ShouldBe(expectedTransit);
 
             byte incoming = transit.Decode_Byte_From_UInt32();
-            incoming.Should().Be(expectedIncoming);
+            incoming.ShouldBe(expectedIncoming);
         }
 
         [Theory]
@@ -57,10 +57,10 @@ namespace MetaFac.CG3.Runtime.GProto3.Tests
         public void Byte_Nullable(byte? outgoing, uint? expectedTransit, byte? expectedIncoming)
         {
             uint? transit = outgoing.Encode_Byte_To_UInt32();
-            transit.Should().Be(expectedTransit);
+            transit.ShouldBe(expectedTransit);
 
             byte? incoming = transit.Decode_Byte_From_UInt32(0);
-            incoming.Should().Be(expectedIncoming);
+            incoming.ShouldBe(expectedIncoming);
         }
     }
 }

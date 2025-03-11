@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -16,13 +16,13 @@ namespace MetaFac.CG3.Schemas.UnitTests
         public void NormalUsageTest()
         {
             Attribute[] customAttributes = typeof(GoodEntity).GetCustomAttributes().ToArray();
-            customAttributes.Length.Should().Be(1);
+            customAttributes.Length.ShouldBe(1);
 
             Attribute customAttribute = customAttributes[0];
-            customAttribute.Should().BeOfType<EntityAttribute>();
+            customAttribute.ShouldBeOfType<EntityAttribute>();
 
             EntityAttribute entityAttribute = (EntityAttribute)customAttribute;
-            entityAttribute.Tag.Should().Be(1);
+            entityAttribute.Tag.ShouldBe(1);
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace MetaFac.CG3.Schemas.UnitTests
             {
                 Attribute[] customAttributes = typeof(BadTagEntity).GetCustomAttributes().ToArray();
             });
-            ex.Message.Should().StartWith("Specified argument was out of the range of valid values.");
+            ex.Message.ShouldStartWith("Specified argument was out of the range of valid values.");
         }
     }
 }

@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using System;
 using System.Text.Json;
 using Xunit;
@@ -18,10 +18,10 @@ namespace MetaFac.CG3.Runtime.JsonPoco.Tests
             TimeSpan original = new TimeSpan(ticks);
             TimeSpanData outgoing = original;
             string json = JsonSerializer.Serialize(outgoing);
-            json.Should().Be(expectedJson);
+            json.ShouldBe(expectedJson);
             TimeSpanData incoming = JsonSerializer.Deserialize<TimeSpanData>(json);
             TimeSpan duplicate = incoming;
-            duplicate.Should().Be(original);
+            duplicate.ShouldBe(original);
         }
 
         [Theory]
@@ -35,8 +35,8 @@ namespace MetaFac.CG3.Runtime.JsonPoco.Tests
             TestPoco original = new TestPoco() { Field1 = "abc", Field2 = new TimeSpan(ticks) };
             string json = JsonSerializer.Serialize(original);
             TestPoco? duplicate = JsonSerializer.Deserialize<TestPoco>(json);
-            duplicate.Should().NotBeNull();
-            duplicate.Should().Be(original);
+            duplicate.ShouldNotBeNull();
+            duplicate.ShouldBe(original);
         }
     }
 }

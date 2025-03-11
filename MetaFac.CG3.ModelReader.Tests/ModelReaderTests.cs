@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using MetaFac.CG3.Models;
 using System.Linq;
 using System.Reflection;
@@ -14,21 +14,21 @@ namespace MetaFac.CG3.ModelReader.Tests
             // arrange
             string ns = typeof(TestModel.BuiltinTypes).Namespace!;
             ModelContainer metadata = ModelParser.ParseAssembly(Assembly.GetExecutingAssembly(), ns);
-            metadata.Tokens.Count.Should().Be(0);
-            metadata.ModelDefs.Count.Should().Be(1);
+            metadata.Tokens.Count.ShouldBe(0);
+            metadata.ModelDefs.Count.ShouldBe(1);
             string originalJson = metadata.ToJson(true);
 
             // act
             var metadata2 = ModelContainer.FromJson(originalJson);
 
             // assert
-            metadata2.Should().Be(metadata);
+            metadata2.ShouldBe(metadata);
 
             // act again
             string duplicateJson = metadata2.ToJson(true);
 
             // assert
-            duplicateJson.Should().Be(originalJson);
+            duplicateJson.ShouldBe(originalJson);
         }
 
         [Fact]
@@ -36,15 +36,15 @@ namespace MetaFac.CG3.ModelReader.Tests
         {
             string ns = typeof(TestModel.BuiltinTypes).Namespace!;
             ModelContainer metadata = ModelParser.ParseAssembly(Assembly.GetExecutingAssembly(), ns);
-            metadata.Tokens.Count.Should().Be(0);
-            metadata.ModelDefs.Count.Should().Be(1);
+            metadata.Tokens.Count.ShouldBe(0);
+            metadata.ModelDefs.Count.ShouldBe(1);
             var modelDef = metadata.ModelDefs[0];
-            modelDef.Tokens.Count.Should().Be(0);
-            modelDef.ClassDefs.Count.Should().Be(3);
+            modelDef.Tokens.Count.ShouldBe(0);
+            modelDef.ClassDefs.Count.ShouldBe(3);
             var classDef = modelDef.ClassDefs[0];
-            classDef.Name.Should().Be("BuiltinTypes");
-            classDef.Tokens.Count.Should().Be(0);
-            classDef.FieldDefs.Count.Should().Be(19);
+            classDef.Name.ShouldBe("BuiltinTypes");
+            classDef.Tokens.Count.ShouldBe(0);
+            classDef.FieldDefs.Count.ShouldBe(19);
         }
 
         [Fact]
@@ -52,22 +52,22 @@ namespace MetaFac.CG3.ModelReader.Tests
         {
             string ns = typeof(TestModel.ExternalTypes).Namespace!;
             ModelContainer metadata = ModelParser.ParseAssembly(Assembly.GetExecutingAssembly(), ns);
-            metadata.Tokens.Count.Should().Be(0);
-            metadata.ModelDefs.Count.Should().Be(1);
+            metadata.Tokens.Count.ShouldBe(0);
+            metadata.ModelDefs.Count.ShouldBe(1);
             var modelDef = metadata.ModelDefs[0];
             var classDef = modelDef.ClassDefs.Where(cd => cd.Name == "ExternalTypes").Single();
-            classDef.Tokens.Count.Should().Be(0);
-            classDef.FieldDefs.Count.Should().Be(1);
+            classDef.Tokens.Count.ShouldBe(0);
+            classDef.FieldDefs.Count.ShouldBe(1);
 
             // external type
             var field0 = classDef.FieldDefs[0];
-            field0.Tag.Should().Be(1);
-            field0.Name.Should().Be("Quantities");
-            field0.ProxyDef.Should().NotBeNull();
-            field0.ProxyDef!.ExternalName.Should().Be("LabApps.Units.Quantity");
-            field0.ProxyDef.ConcreteName.Should().Be("QuantityValue");
-            field0.ArrayRank.Should().Be(1);
-            field0.InnerType.Should().Be("Quantity");
+            field0.Tag.ShouldBe(1);
+            field0.Name.ShouldBe("Quantities");
+            field0.ProxyDef.ShouldNotBeNull();
+            field0.ProxyDef!.ExternalName.ShouldBe("LabApps.Units.Quantity");
+            field0.ProxyDef.ConcreteName.ShouldBe("QuantityValue");
+            field0.ArrayRank.ShouldBe(1);
+            field0.InnerType.ShouldBe("Quantity");
         }
 
         [Fact]
@@ -75,39 +75,39 @@ namespace MetaFac.CG3.ModelReader.Tests
         {
             string ns = typeof(TestModel.ExternalTypes).Namespace!;
             ModelContainer metadata = ModelParser.ParseAssembly(Assembly.GetExecutingAssembly(), ns);
-            metadata.Tokens.Count.Should().Be(0);
-            metadata.ModelDefs.Count.Should().Be(1);
+            metadata.Tokens.Count.ShouldBe(0);
+            metadata.ModelDefs.Count.ShouldBe(1);
             var modelDef = metadata.ModelDefs[0];
             var classDef = modelDef.ClassDefs.Where(cd => cd.Name == "EnumeratorTypes").Single();
-            classDef.Tokens.Count.Should().Be(0);
-            classDef.FieldDefs.Count.Should().Be(3);
+            classDef.Tokens.Count.ShouldBe(0);
+            classDef.FieldDefs.Count.ShouldBe(3);
 
             // enumerator types
             {
                 var fieldDef = classDef.FieldDefs[0];
-                fieldDef.Tag.Should().Be(1);
-                fieldDef.Name.Should().Be("DaysOfWeek");
-                fieldDef.ProxyDef.Should().BeNull();
-                fieldDef.ArrayRank.Should().Be(1);
-                fieldDef.InnerType.Should().Be("System.DayOfWeek");
+                fieldDef.Tag.ShouldBe(1);
+                fieldDef.Name.ShouldBe("DaysOfWeek");
+                fieldDef.ProxyDef.ShouldBeNull();
+                fieldDef.ArrayRank.ShouldBe(1);
+                fieldDef.InnerType.ShouldBe("System.DayOfWeek");
             }
             {
                 var fieldDef = classDef.FieldDefs[1];
-                fieldDef.Tag.Should().Be(2);
-                fieldDef.Name.Should().Be("MyCustomEnums");
-                fieldDef.ProxyDef.Should().BeNull();
-                fieldDef.ArrayRank.Should().Be(1);
-                fieldDef.InnerType.Should().Be("MetaFac.CG3.ModelReader.Tests.TestModel.MyCustomEnum");
+                fieldDef.Tag.ShouldBe(2);
+                fieldDef.Name.ShouldBe("MyCustomEnums");
+                fieldDef.ProxyDef.ShouldBeNull();
+                fieldDef.ArrayRank.ShouldBe(1);
+                fieldDef.InnerType.ShouldBe("MetaFac.CG3.ModelReader.Tests.TestModel.MyCustomEnum");
             }
             {
                 var fieldDef = classDef.FieldDefs[2];
-                fieldDef.Tag.Should().Be(3);
-                fieldDef.Name.Should().Be("MyDateTimeKinds");
-                fieldDef.ProxyDef.Should().NotBeNull();
-                fieldDef.ProxyDef!.ExternalName.Should().Be("System.DateTimeKind");
-                fieldDef.ProxyDef.ConcreteName.Should().Be("MyDateTimeKindValue");
-                fieldDef.ArrayRank.Should().Be(1);
-                fieldDef.InnerType.Should().Be("MyDateTimeKind");
+                fieldDef.Tag.ShouldBe(3);
+                fieldDef.Name.ShouldBe("MyDateTimeKinds");
+                fieldDef.ProxyDef.ShouldNotBeNull();
+                fieldDef.ProxyDef!.ExternalName.ShouldBe("System.DateTimeKind");
+                fieldDef.ProxyDef.ConcreteName.ShouldBe("MyDateTimeKindValue");
+                fieldDef.ArrayRank.ShouldBe(1);
+                fieldDef.InnerType.ShouldBe("MyDateTimeKind");
             }
         }
 

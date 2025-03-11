@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -19,42 +19,42 @@ namespace MetaFac.CG3.Template.UnitTests
         public void Create_Empty()
         {
             var concrete = new T_ClassName_();
-            concrete.T_UnaryModelFieldName_.Should().BeNull();
-            concrete.T_ArrayModelFieldName_.Should().BeNull();
-            concrete.T_IndexModelFieldName_.Should().BeNull();
-            concrete.T_UnaryOtherFieldName_.Should().Be(default);
-            concrete.T_ArrayOtherFieldName_.Should().BeNull();
-            concrete.T_IndexOtherFieldName_.Should().BeNull();
-            concrete.T_UnaryMaybeFieldName_.Should().BeNull();
-            concrete.T_ArrayMaybeFieldName_.Should().BeNull();
-            concrete.T_IndexMaybeFieldName_.Should().BeNull();
-            concrete.T_UnaryBufferFieldName_.Should().BeNull();
-            concrete.T_ArrayBufferFieldName_.Should().BeNull();
-            concrete.T_IndexBufferFieldName_.Should().BeNull();
-            concrete.T_UnaryStringFieldName_.Should().BeNull();
-            concrete.T_ArrayStringFieldName_.Should().BeNull();
-            concrete.T_IndexStringFieldName_.Should().BeNull();
+            concrete.T_UnaryModelFieldName_.ShouldBeNull();
+            concrete.T_ArrayModelFieldName_.ShouldBeNull();
+            concrete.T_IndexModelFieldName_.ShouldBeNull();
+            concrete.T_UnaryOtherFieldName_.ShouldBe(default);
+            concrete.T_ArrayOtherFieldName_.ShouldBeNull();
+            concrete.T_IndexOtherFieldName_.ShouldBeNull();
+            concrete.T_UnaryMaybeFieldName_.ShouldBeNull();
+            concrete.T_ArrayMaybeFieldName_.ShouldBeNull();
+            concrete.T_IndexMaybeFieldName_.ShouldBeNull();
+            concrete.T_UnaryBufferFieldName_.ShouldBeNull();
+            concrete.T_ArrayBufferFieldName_.ShouldBeNull();
+            concrete.T_IndexBufferFieldName_.ShouldBeNull();
+            concrete.T_UnaryStringFieldName_.ShouldBeNull();
+            concrete.T_ArrayStringFieldName_.ShouldBeNull();
+            concrete.T_IndexStringFieldName_.ShouldBeNull();
 
             IT_ClassName_ external = concrete;
-            external.T_UnaryModelFieldName_.Should().BeNull();
-            external.T_ArrayModelFieldName_.Should().BeNull();
-            external.T_IndexModelFieldName_.Should().BeNull();
-            external.T_UnaryOtherFieldName_.Should().Be(default);
-            external.T_ArrayOtherFieldName_.Should().BeNull();
-            external.T_IndexOtherFieldName_.Should().BeNull();
-            external.T_UnaryMaybeFieldName_.Should().BeNull();
-            external.T_ArrayMaybeFieldName_.Should().BeNull();
-            external.T_IndexMaybeFieldName_.Should().BeNull();
-            external.T_UnaryBufferFieldName_.Should().BeNull();
-            external.T_ArrayBufferFieldName_.Should().BeNull();
-            external.T_IndexBufferFieldName_.Should().BeNull();
-            external.T_UnaryStringFieldName_.Should().Be(default);
-            external.T_ArrayStringFieldName_.Should().BeNull();
-            external.T_IndexStringFieldName_.Should().BeNull();
+            external.T_UnaryModelFieldName_.ShouldBeNull();
+            external.T_ArrayModelFieldName_.ShouldBeNull();
+            external.T_IndexModelFieldName_.ShouldBeNull();
+            external.T_UnaryOtherFieldName_.ShouldBe(default);
+            external.T_ArrayOtherFieldName_.ShouldBeNull();
+            external.T_IndexOtherFieldName_.ShouldBeNull();
+            external.T_UnaryMaybeFieldName_.ShouldBeNull();
+            external.T_ArrayMaybeFieldName_.ShouldBeNull();
+            external.T_IndexMaybeFieldName_.ShouldBeNull();
+            external.T_UnaryBufferFieldName_.ShouldBeNull();
+            external.T_ArrayBufferFieldName_.ShouldBeNull();
+            external.T_IndexBufferFieldName_.ShouldBeNull();
+            external.T_UnaryStringFieldName_.ShouldBe(default);
+            external.T_ArrayStringFieldName_.ShouldBeNull();
+            external.T_IndexStringFieldName_.ShouldBeNull();
 
             var duplicate = new T_ClassName_(external);
-            duplicate.Should().Be(concrete);
-            duplicate.Equals(concrete).Should().BeTrue();
+            duplicate.ShouldBe(concrete);
+            duplicate.Equals(concrete).ShouldBeTrue();
         }
 
         [Fact]
@@ -86,19 +86,19 @@ namespace MetaFac.CG3.Template.UnitTests
             };
 
             IT_ClassName_ external = concrete;
-            external.T_UnaryModelFieldName_.Should().NotBeNull();
-            external.T_ArrayModelFieldName_.Should().NotBeNull();
-            external.T_IndexModelFieldName_.Should().NotBeNull();
-            external.T_UnaryOtherFieldName_.Should().Be(123L);
-            external.T_ArrayOtherFieldName_.Should().NotBeNull();
-            external.T_IndexOtherFieldName_.Should().NotBeNull();
-            external.T_UnaryMaybeFieldName_.Should().BeNull();
-            external.T_ArrayMaybeFieldName_.Should().NotBeNull();
-            external.T_IndexMaybeFieldName_.Should().NotBeNull();
+            external.T_UnaryModelFieldName_.ShouldNotBeNull();
+            external.T_ArrayModelFieldName_.ShouldNotBeNull();
+            external.T_IndexModelFieldName_.ShouldNotBeNull();
+            external.T_UnaryOtherFieldName_.ShouldBe(123L);
+            external.T_ArrayOtherFieldName_.ShouldNotBeNull();
+            external.T_IndexOtherFieldName_.ShouldNotBeNull();
+            external.T_UnaryMaybeFieldName_.ShouldBeNull();
+            external.T_ArrayMaybeFieldName_.ShouldNotBeNull();
+            external.T_IndexMaybeFieldName_.ShouldNotBeNull();
 
             var duplicate = new T_ClassName_(external);
-            duplicate.Should().Be(concrete);
-            duplicate.Equals(concrete).Should().BeTrue();
+            duplicate.ShouldBe(concrete);
+            duplicate.Equals(concrete).ShouldBeTrue();
         }
 
         [Fact]
@@ -107,10 +107,10 @@ namespace MetaFac.CG3.Template.UnitTests
             var original = new T_ClassName_();
             var options = new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
             string json = JsonSerializer.Serialize(original, options);
-            json.Should().Be("{\"T_UnaryOtherFieldName_\":0}");
+            json.ShouldBe("{\"T_UnaryOtherFieldName_\":0}");
             var duplicate = JsonSerializer.Deserialize<T_ClassName_>(json);
-            duplicate.Should().Be(original);
-            duplicate!.Equals(original).Should().BeTrue();
+            duplicate.ShouldBe(original);
+            duplicate!.Equals(original).ShouldBeTrue();
         }
 
         [Fact]
@@ -143,8 +143,8 @@ namespace MetaFac.CG3.Template.UnitTests
 
             string json = JsonSerializer.Serialize(original);
             var duplicate = JsonSerializer.Deserialize<T_ClassName_>(json);
-            duplicate.Should().Be(original);
-            duplicate!.Equals(original).Should().BeTrue();
+            duplicate.ShouldBe(original);
+            duplicate!.Equals(original).ShouldBeTrue();
         }
 
     }

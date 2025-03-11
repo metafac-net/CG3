@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using System.Collections.Generic;
 using Xunit;
 
@@ -18,15 +18,15 @@ namespace MetaFac.CG3.Template.UnitTests
             f1.Freeze();
 
             var m2 = new T_Namespace_.JsonPoco.T_ClassName_(f1);
-            m2.Should().Be(m1);
-            m2.Equals(m1).Should().BeTrue();
-            m2.GetHashCode().Should().Be(m1.GetHashCode());
+            m2.ShouldBe(m1);
+            m2.Equals(m1).ShouldBeTrue();
+            m2.GetHashCode().ShouldBe(m1.GetHashCode());
 
             var f2 = new T_Namespace_.Freezables.T_ClassName_(m2);
             f2.Freeze();
-            f2.Should().Be(f1);
-            f2.Equals(f1).Should().BeTrue();
-            f2.GetHashCode().Should().Be(f1.GetHashCode());
+            f2.ShouldBe(f1);
+            f2.Equals(f1).ShouldBeTrue();
+            f2.GetHashCode().ShouldBe(f1.GetHashCode());
         }
 
         [Fact]
@@ -46,15 +46,15 @@ namespace MetaFac.CG3.Template.UnitTests
             f1.Freeze();
 
             var m2 = new T_Namespace_.JsonPoco.T_ClassName_(f1);
-            m2.Should().Be(m1);
-            m2.Equals(m1).Should().BeTrue();
-            //m2.GetHashCode().Should().Be(m1.GetHashCode());
+            m2.ShouldBe(m1);
+            m2.Equals(m1).ShouldBeTrue();
+            //m2.GetHashCode().ShouldBe(m1.GetHashCode());
 
             var f2 = new T_Namespace_.Freezables.T_ClassName_(m2);
             f2.Freeze();
-            f2.Should().Be(f1);
-            f2.Equals(f1).Should().BeTrue();
-            f2.GetHashCode().Should().Be(f1.GetHashCode());
+            f2.ShouldBe(f1);
+            f2.Equals(f1).ShouldBeTrue();
+            f2.GetHashCode().ShouldBe(f1.GetHashCode());
         }
     }
 }

@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using Xunit;
 
 namespace MetaFac.CG3.Runtime.GProto3.Tests
@@ -14,10 +14,10 @@ namespace MetaFac.CG3.Runtime.GProto3.Tests
         public void Short(short outgoing, int expectedTransit, short expectedIncoming)
         {
             int transit = outgoing.Encode_Int16_To_Int32();
-            transit.Should().Be(expectedTransit);
+            transit.ShouldBe(expectedTransit);
 
             short incoming = transit.Decode_Int16_From_Int32();
-            incoming.Should().Be(expectedIncoming);
+            incoming.ShouldBe(expectedIncoming);
         }
 
         [Theory]
@@ -30,10 +30,10 @@ namespace MetaFac.CG3.Runtime.GProto3.Tests
         public void Short_Nullable(short? outgoing, int? expectedTransit, short? expectedIncoming)
         {
             int? transit = outgoing.Encode_Int16_To_Int32();
-            transit.Should().Be(expectedTransit);
+            transit.ShouldBe(expectedTransit);
 
             short? incoming = transit.Decode_Int16_From_Int32(0);
-            incoming.Should().Be(expectedIncoming);
+            incoming.ShouldBe(expectedIncoming);
         }
 
         [Theory]
@@ -43,10 +43,10 @@ namespace MetaFac.CG3.Runtime.GProto3.Tests
         public void UShort(ushort outgoing, uint expectedTransit, ushort expectedIncoming)
         {
             uint transit = outgoing.Encode_UInt16_To_UInt32();
-            transit.Should().Be(expectedTransit);
+            transit.ShouldBe(expectedTransit);
 
             ushort incoming = transit.Decode_UInt16_From_UInt32();
-            incoming.Should().Be(expectedIncoming);
+            incoming.ShouldBe(expectedIncoming);
         }
 
         [Theory]
@@ -57,10 +57,10 @@ namespace MetaFac.CG3.Runtime.GProto3.Tests
         public void UShort_Nullable(ushort? outgoing, uint? expectedTransit, ushort? expectedIncoming)
         {
             uint? transit = outgoing.Encode_UInt16_To_UInt32();
-            transit.Should().Be(expectedTransit);
+            transit.ShouldBe(expectedTransit);
 
             ushort? incoming = transit.Decode_UInt16_From_UInt32(0);
-            incoming.Should().Be(expectedIncoming);
+            incoming.ShouldBe(expectedIncoming);
         }
     }
 }
