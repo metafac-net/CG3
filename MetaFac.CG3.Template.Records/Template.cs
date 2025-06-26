@@ -62,7 +62,7 @@
 //--------------------------------------------------------------------------------
 #endregion
 #nullable enable
-using MetaFac.Memory;
+using DataFac.Memory;
 using MetaFac.CG3.Runtime;
 using System;
 using System.Collections.Generic;

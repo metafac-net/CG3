@@ -73,7 +73,7 @@ Emit("// mfcg3 g2c --help");
 Emit("//--------------------------------------------------------------------------------");
 Emit("#endregion");
 Emit("#nullable enable");
-Emit("using MetaFac.Memory;");
+Emit("using DataFac.Memory;");
 Emit("using MetaFac.CG3.Runtime;");
 Emit("using System;");
 Emit("using System.Collections.Generic;");

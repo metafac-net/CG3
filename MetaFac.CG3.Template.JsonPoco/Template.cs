@@ -83,7 +83,7 @@
 //--------------------------------------------------------------------------------
 #endregion
 #nullable enable
-using MetaFac.Memory;
+using DataFac.Memory;
 using MetaFac.CG3.Runtime;
 using MetaFac.CG3.Runtime.JsonPoco;
 using System;
@@ -277,11 +277,11 @@ namespace T_Namespace_.JsonPoco
             //>>    break; case FieldKind.IndexOther:
             T_IndexOtherFieldName_ = source.T_IndexOtherFieldName_?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToInternal());
             //>>    break; case FieldKind.UnaryBuffer:
-            T_UnaryBufferFieldName_ = source.T_UnaryBufferFieldName_?.Memory.ToArray();
+            T_UnaryBufferFieldName_ = source.T_UnaryBufferFieldName_?.ToByteArray();
             //>>    break; case FieldKind.ArrayBuffer:
-            T_ArrayBufferFieldName_ = source.T_ArrayBufferFieldName_?.Select(b => b?.Memory.ToArray()).ToArray();
+            T_ArrayBufferFieldName_ = source.T_ArrayBufferFieldName_?.Select(b => b?.ToByteArray()).ToArray();
             //>>    break; case FieldKind.IndexBuffer:
-            T_IndexBufferFieldName_ = source.T_IndexBufferFieldName_?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value?.Memory.ToArray());
+            T_IndexBufferFieldName_ = source.T_IndexBufferFieldName_?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value?.ToByteArray());
             //>>    break; case FieldKind.UnaryString:
             T_UnaryStringFieldName_ = source.T_UnaryStringFieldName_;
             //>>    break; case FieldKind.ArrayString:

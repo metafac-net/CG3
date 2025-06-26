@@ -14,7 +14,7 @@
 //--------------------------------------------------------------------------------
 #endregion
 #nullable enable
-using MetaFac.Memory;
+using DataFac.Memory;
 using MetaFac.CG3.Runtime;
 using MetaFac.CG3.Runtime.JsonPoco;
 using System;
@@ -131,7 +131,7 @@ namespace Generated.JsonPoco
             DateTimeOffsets = source.DateTimeOffsets?.Select(x => x.ToInternal()).ToArray();
             Guids = source.Guids?.Select(x => x.ToInternal()).ToArray();
             Strings = source.Strings?.ToArray();
-            Buffers = source.Buffers?.Select(b => b?.Memory.ToArray()).ToArray();
+            Buffers = source.Buffers?.Select(b => b?.ToByteArray()).ToArray();
             Quantities = source.Quantities?.Select(x => x.ToInternal()).ToArray();
             MyDaysOfWeek = source.MyDaysOfWeek?.Select(x => x.ToInternal()).ToArray();
             MyDateTimeKinds = source.MyDateTimeKinds?.Select(x => x.ToInternal()).ToArray();

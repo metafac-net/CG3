@@ -96,7 +96,7 @@ Emit("// mfcg3 g2c --help");
 Emit("//--------------------------------------------------------------------------------");
 Emit("#endregion");
 Emit("#nullable enable");
-Emit("using MetaFac.Memory;");
+Emit("using DataFac.Memory;");
 Emit("using MetaFac.CG3.Runtime;");
 Emit("using MetaFac.CG3.Runtime.ProtobufNet3;");
 Emit("using ProtoBuf;");
@@ -352,11 +352,11 @@ Emit("            T_ArrayOtherFieldName_ = source.T_ArrayOtherFieldName_?.Select
                 break; case FieldKind.IndexOther:
 Emit("            T_IndexOtherFieldName_ = source.T_IndexOtherFieldName_?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToInternal());");
                 break; case FieldKind.UnaryBuffer:
-Emit("            T_UnaryBufferFieldName_ = source.T_UnaryBufferFieldName_?.Memory.ToArray();");
+Emit("            T_UnaryBufferFieldName_ = source.T_UnaryBufferFieldName_?.ToByteArray();");
                 break; case FieldKind.ArrayBuffer:
-Emit("            T_ArrayBufferFieldName_ = source.T_ArrayBufferFieldName_?.Select(b => b?.Memory.ToArray()).ToArray();");
+Emit("            T_ArrayBufferFieldName_ = source.T_ArrayBufferFieldName_?.Select(b => b?.ToByteArray()).ToArray();");
                 break; case FieldKind.IndexBuffer:
-Emit("            T_IndexBufferFieldName_ = source.T_IndexBufferFieldName_?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value?.Memory.ToArray());");
+Emit("            T_IndexBufferFieldName_ = source.T_IndexBufferFieldName_?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value?.ToByteArray());");
                 break; case FieldKind.UnaryString:
 Emit("            T_UnaryStringFieldName_ = source.T_UnaryStringFieldName_;");
                 break; case FieldKind.ArrayString:

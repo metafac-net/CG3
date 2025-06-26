@@ -80,7 +80,7 @@
 //--------------------------------------------------------------------------------
 #endregion
 #nullable enable
-using MetaFac.Memory;
+using DataFac.Memory;
 using System;
 using System.Collections.Generic;
 
