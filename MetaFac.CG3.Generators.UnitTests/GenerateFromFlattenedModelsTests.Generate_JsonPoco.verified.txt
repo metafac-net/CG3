@@ -96,7 +96,7 @@ namespace Generated.JsonPoco
         IEnumerable<Guid>? IBuiltinTypes.Guids => Guids
             ?.Select(x => x.ToExternal());
         IEnumerable<String?>? IBuiltinTypes.Strings => Strings;
-        IEnumerable<Octets?>? IBuiltinTypes.Buffers => Buffers?.Select(b => b is null ? null : Octets.UnsafeWrap(b));
+        IEnumerable<Octets?>? IBuiltinTypes.Buffers => Buffers?.Select(b => b is null ? null : Octets.Wrap(b));
         IEnumerable<LabApps.Units.Quantity>? IBuiltinTypes.Quantities => Quantities
             ?.Select(x => x.ToExternal());
         IEnumerable<System.DayOfWeek>? IBuiltinTypes.MyDaysOfWeek => MyDaysOfWeek

@@ -291,12 +291,12 @@ namespace T_Namespace_.ProtobufNet3
         IEnumerable<KeyValuePair<T_IndexType_, T_ExternalOtherType_>>? IT_ClassName_.T_IndexOtherFieldName_ => T_IndexOtherFieldName_
             ?.Select(kvp => new KeyValuePair<T_IndexType_, T_ExternalOtherType_>(kvp.Key, kvp.Value.ToExternal()));
         //>>    break; case FieldKind.UnaryBuffer:
-        Octets? IT_ClassName_.T_UnaryBufferFieldName_ => T_UnaryBufferFieldName_ is null? null: Octets.UnsafeWrap(T_UnaryBufferFieldName_);
+        Octets? IT_ClassName_.T_UnaryBufferFieldName_ => T_UnaryBufferFieldName_ is null? null: Octets.Wrap(T_UnaryBufferFieldName_);
         //>>    break; case FieldKind.ArrayBuffer:
-        IEnumerable<Octets?>? IT_ClassName_.T_ArrayBufferFieldName_ => T_ArrayBufferFieldName_?.Select(b => b is null ? null : Octets.UnsafeWrap(b));
+        IEnumerable<Octets?>? IT_ClassName_.T_ArrayBufferFieldName_ => T_ArrayBufferFieldName_?.Select(b => b is null ? null : Octets.Wrap(b));
         //>>    break; case FieldKind.IndexBuffer:
         IEnumerable<KeyValuePair<T_IndexType_, Octets?>>? IT_ClassName_.T_IndexBufferFieldName_ => T_IndexBufferFieldName_
-            ?.Select(kvp => new KeyValuePair<T_IndexType_, Octets?>(kvp.Key, kvp.Value is null ? null : Octets.UnsafeWrap(kvp.Value)));
+            ?.Select(kvp => new KeyValuePair<T_IndexType_, Octets?>(kvp.Key, kvp.Value is null ? null : Octets.Wrap(kvp.Value)));
         //>>    break; case FieldKind.UnaryString:
         String? IT_ClassName_.T_UnaryStringFieldName_ => T_UnaryStringFieldName_;
         //>>    break; case FieldKind.ArrayString:

@@ -302,12 +302,12 @@ Emit("            ?.Select(x => x.ToExternal());");
 Emit("        IEnumerable<KeyValuePair<T_IndexType_, T_ExternalOtherType_>>? IT_ClassName_.T_IndexOtherFieldName_ => T_IndexOtherFieldName_");
 Emit("            ?.Select(kvp => new KeyValuePair<T_IndexType_, T_ExternalOtherType_>(kvp.Key, kvp.Value.ToExternal()));");
             break; case FieldKind.UnaryBuffer:
-Emit("        Octets? IT_ClassName_.T_UnaryBufferFieldName_ => T_UnaryBufferFieldName_ is null? null: Octets.UnsafeWrap(T_UnaryBufferFieldName_);");
+Emit("        Octets? IT_ClassName_.T_UnaryBufferFieldName_ => T_UnaryBufferFieldName_ is null? null: Octets.Wrap(T_UnaryBufferFieldName_);");
             break; case FieldKind.ArrayBuffer:
-Emit("        IEnumerable<Octets?>? IT_ClassName_.T_ArrayBufferFieldName_ => T_ArrayBufferFieldName_?.Select(b => b is null ? null : Octets.UnsafeWrap(b));");
+Emit("        IEnumerable<Octets?>? IT_ClassName_.T_ArrayBufferFieldName_ => T_ArrayBufferFieldName_?.Select(b => b is null ? null : Octets.Wrap(b));");
             break; case FieldKind.IndexBuffer:
 Emit("        IEnumerable<KeyValuePair<T_IndexType_, Octets?>>? IT_ClassName_.T_IndexBufferFieldName_ => T_IndexBufferFieldName_");
-Emit("            ?.Select(kvp => new KeyValuePair<T_IndexType_, Octets?>(kvp.Key, kvp.Value is null ? null : Octets.UnsafeWrap(kvp.Value)));");
+Emit("            ?.Select(kvp => new KeyValuePair<T_IndexType_, Octets?>(kvp.Key, kvp.Value is null ? null : Octets.Wrap(kvp.Value)));");
             break; case FieldKind.UnaryString:
 Emit("        String? IT_ClassName_.T_UnaryStringFieldName_ => T_UnaryStringFieldName_;");
             break; case FieldKind.ArrayString:
